@@ -12,6 +12,13 @@ jobs:
           python-version: 3.9
         env:
           CI: true
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8
+      - name: Analysing the code with flake8
+        run: |
+          flake8 lambda_function.py    
       - name: zip
         uses: montudor/action-zip@v0.1.0
         with:
